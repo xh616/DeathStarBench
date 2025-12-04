@@ -3,7 +3,7 @@ name: mongodb-recommendation
 replicas: 1
 
 ports:
-  - port: 27021
+  - port: 27017
     targetPort: 27017
  
 container:

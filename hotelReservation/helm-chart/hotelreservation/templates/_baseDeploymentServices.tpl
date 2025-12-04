@@ -4,21 +4,21 @@ kind: Deployment
 metadata:
   labels:
     {{- include "hotel-reservation.labels" . | nindent 4 }}
-    service: {{ .Values.name }}-{{ include "hotel-reservation.fullname" . }}
-  name: {{ .Values.name }}-{{ include "hotel-reservation.fullname" . }}
+    service: {{ .Values.name }}
+  name: {{ .Values.name }}
 spec:
   replicas: {{ .Values.replicas | default .Values.global.replicas }}
   selector:
     matchLabels:
       {{- include "hotel-reservation.selectorLabels" . | nindent 6 }}
-      service: {{ .Values.name }}-{{ include "hotel-reservation.fullname" . }}
-      app: {{ .Values.name }}-{{ include "hotel-reservation.fullname" . }}
+      service: {{ .Values.name }}
+      app: {{ .Values.name }}
   template:
     metadata:
       labels:
         {{- include "hotel-reservation.labels" . | nindent 8 }}
-        service: {{ .Values.name }}-{{ include "hotel-reservation.fullname" . }}
-        app: {{ .Values.name }}-{{ include "hotel-reservation.fullname" . }}
+        service: {{ .Values.name }}
+        app: {{ .Values.name }}
       {{- if hasKey $.Values "annotations" }}
       annotations:
         {{ tpl $.Values.annotations . | nindent 8 | trim }}
@@ -61,10 +61,10 @@ spec:
         {{- end }}
         {{- if .resources }}
         resources:
-          {{ tpl .resources $ | nindent 10 | trim }}
+          {{ toYaml .resources | nindent 10 | trim }}
         {{- else if hasKey $.Values.global "resources" }}
         resources:
-          {{ tpl $.Values.global.resources $ | nindent 10 | trim }}
+          {{ toYaml $.Values.global.resources | nindent 10 | trim }}
         {{- end }}
         {{- if $.Values.configMaps }}        
         volumeMounts: 

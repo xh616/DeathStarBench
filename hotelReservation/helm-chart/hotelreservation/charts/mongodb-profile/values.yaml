@@ -3,7 +3,7 @@ name: mongodb-profile
 replicas: 1
 
 ports:
-  - port: 27019
+  - port: 27017
     targetPort: 27017
  
 container:

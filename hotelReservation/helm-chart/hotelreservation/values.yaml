@@ -4,6 +4,13 @@ global:
   mainChart: hotelres
   replicas: 1
   imagePullPolicy: "IfNotPresent"
+  resources:
+    limits:
+      cpu: "2"
+      memory: "256Mi"
+    requests:
+      cpu: "250m"
+      memory: "128Mi"
   restartPolicy: Always
   serviceType: ClusterIP
   dockerRegistry: docker.io
@@ -38,3 +45,13 @@ global:
       pvprovisioner:
         enabled: false
         storageClassName: ceph-fs   # optional
+
+frontend:
+  container:
+    resources:
+      limits:
+        cpu: "4"
+        memory: "256Mi"
+      requests:
+        cpu: "500m"
+        memory: "128Mi"

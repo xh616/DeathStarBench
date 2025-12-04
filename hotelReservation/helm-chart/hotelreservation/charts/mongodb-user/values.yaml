@@ -3,7 +3,7 @@ name: mongodb-user
 replicas: 1
 
 ports:
-  - port: 27023
+  - port: 27017
     targetPort: 27017
  
 container:

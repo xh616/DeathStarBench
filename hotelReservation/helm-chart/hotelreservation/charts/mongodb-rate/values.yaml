@@ -3,7 +3,7 @@ name: mongodb-rate
 replicas: 1
 
 ports:
-  - port: 27020
+  - port: 27017
     targetPort: 27017
  
 container:

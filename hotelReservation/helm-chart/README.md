@@ -106,7 +106,7 @@ helm install RELEASE_NAME HELM_CHART_REPO_PATH \
 
 #### Same resources for all the containers and unique for frontend ####
 ```
-helm install RELEASE_NAME HELM_CHART_REPO_PATH \
+helm install thehotelreservation ./hotelreservation -n hotel-reservation \
   --set-string global.resources="requests:
       memory: "64Mi"
       cpu: "250m"

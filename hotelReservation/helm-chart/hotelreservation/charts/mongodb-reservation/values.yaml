@@ -3,7 +3,7 @@ name: mongodb-reservation
 replicas: 1
 
 ports:
-  - port: 27022
+  - port: 27017
     targetPort: 27017
 
 container:
